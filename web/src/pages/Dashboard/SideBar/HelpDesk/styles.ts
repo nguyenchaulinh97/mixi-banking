@@ -1,0 +1,44 @@
+import { motion } from "framer-motion";
+import { transparentize } from "polished";
+import styled, { css } from "styled-components";
+
+import { Container as ButtonContainer } from "../../../../components/Button/styles";
+
+export const AnimatedContainer = styled(motion.aside)`
+  ${({ theme }) => css`
+    padding: 2rem 2.4rem;
+    margin-top: 2.4rem;
+    background: ${transparentize(0.92, theme.colors.grey)};
+    border-radius: ${theme.radii.default};
+    display: flex;
+    align-items: center;
+
+    > img {
+      background: ${theme.colors.background};
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      margin-right: 0.8rem;
+    }
+
+    > span {
+      font-size: ${theme.fontSizes.small};
+    }
+  `}
+`;
+
+export const HelpButton = styled(ButtonContainer)`
+  margin-left: auto;
+  border-radius: 50%;
+  flex-grow: 0;
+  padding: 0.8rem;
+`;
+
+export const SignOutButton = styled(ButtonContainer)`
+  border-radius: 50%;
+  flex-grow: 0;
+  padding: 0.8rem;
+  :hover {
+    background: gray;
+  }
+`;

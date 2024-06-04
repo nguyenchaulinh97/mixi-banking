@@ -1,0 +1,12 @@
+.sendRow {
+  th,
+  td {
+    color: red;
+  }
+}
+.receiveRow {
+  th,
+  td {
+    color: green;
+  }
+}

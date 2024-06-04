@@ -31,10 +31,10 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
     if (!visible) return;
 
     const keyHandler = (e: KeyboardEvent) => {
-      if (["Backspace", "Escape"].includes(e.code)) {
-        if (!isEnvBrowser()) fetchNui("hideFrame");
-        else setVisible(!visible);
-      }
+      // if (["Backspace", "Escape"].includes(e.code)) {
+      //   if (!isEnvBrowser()) fetchNui("hideFrame");
+      //   else setVisible(!visible);
+      // }
     };
 
     window.addEventListener("keydown", keyHandler);
@@ -50,7 +50,14 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
       }}
     >
       <div
-        style={{ visibility: visible ? "visible" : "hidden", height: "100%" }}
+        style={{
+          visibility: visible ? "visible" : "hidden",
+          height: "100vh",
+          minHeight: "100vh",
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
         {children}
       </div>
@@ -60,5 +67,5 @@ export const VisibilityProvider: React.FC<{ children: React.ReactNode }> = ({
 
 export const useVisibility = () =>
   useContext<VisibilityProviderValue>(
-    VisibilityCtx as Context<VisibilityProviderValue>,
+    VisibilityCtx as Context<VisibilityProviderValue>
   );
